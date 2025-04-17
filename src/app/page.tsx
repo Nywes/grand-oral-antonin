@@ -231,15 +231,17 @@ export default function Home() {
             <div className="absolute top-0 right-4 text-white">+ + + +</div>
           </div>
           <div className="bg-blue-900/30 p-2 text-blue-300 text-sm">
-            Voyagez au-delà de l&apos;horizon—où le passé rencontre le futur
+            {
+              "Voyagez au-delà de l'horizon—où le passé rencontre le futur"
+            }
           </div>
         </div>
 
         {/* Section Voiture Delorean */}
         <div className="border border-blue-500 p-4">
           <div className="flex justify-between text-xs text-blue-400 mb-1">
-            <span>Delorean</span>
-            <span>Démarrer</span>
+            <span>{"Delorean"}</span>
+            <span>{"Démarrer"}</span>
           </div>
           <div className="h-48 bg-gradient-to-b from-transparent to-blue-900/20 flex items-center justify-center">
             {/* Conteneur de silhouette de voiture */}
@@ -249,13 +251,13 @@ export default function Home() {
             </div>
           </div>
           <div className="mt-2 text-gray-400 text-xs">
-            Loran Off. rêve dans un monde cybernétique
+            {"Loran Off. rêve dans un monde cybernétique"}
           </div>
         </div>
 
         {/* Moniteur d'attaques */}
         <div className="border border-blue-500 p-2">
-          <div className="text-xl font-bold text-blue-400 mb-2">FAILLE DE SÉCURITÉ</div>
+          <div className="text-xl font-bold text-blue-400 mb-2">{"FAILLE DE SÉCURITÉ"}</div>
           <div className="flex space-x-1 mb-3">{pulseElements}</div>
           <div className="text-xs text-blue-300 mb-2">
             {attackData.map((attack, i) => (
@@ -271,30 +273,33 @@ export default function Home() {
             ))}
           </div>
           <div className="text-xs text-red-500 mt-2 blink-fast">
-            STATUT DU PARE-FEU: SOUS ATTAQUE
+            {"STATUT DU PARE-FEU: SOUS ATTAQUE"}
           </div>
         </div>
 
         {/* Carte de données */}
         <div className="border border-blue-500 p-2">
           <div className="flex justify-between items-center mb-2">
-            <div className="text-xl font-bold bg-gray-800 px-2">CARTE</div>
-            <div className="text-xl font-bold text-blue-400 px-2">DONNÉES</div>
+            <div className="text-xl font-bold bg-gray-800 px-2">{"CARTE"}</div>
+            <div className="text-xl font-bold text-blue-400 px-2">{"DONNÉES"}</div>
           </div>
           <div className="flex items-center justify-between">
             <div className="text-sm">
               <div className="text-gray-400">
-                STATUT: <span className="text-blue-400">ALERTE</span>
+                {"STATUT: "}
+                <span className="text-blue-400">{"ALERTE"}</span>
               </div>
               <div className="text-gray-400">
-                DATE: <span className="text-blue-400">2077.13.31</span>
+                {"DATE: "}
+                <span className="text-blue-400">{"2077.13.31"}</span>
               </div>
               <div className="text-gray-400">
-                MODE: <span className="text-blue-400">DELOREAN</span>
+                {"MODE: "}
+                <span className="text-blue-400">{"DELOREAN"}</span>
               </div>
             </div>
             <div className="w-16 h-16 bg-blue-900/40 flex items-center justify-center">
-              <div className="text-2xl text-blue-400">→</div>
+              <div className="text-2xl text-blue-400">{"→"}</div>
             </div>
           </div>
         </div>
@@ -305,14 +310,14 @@ export default function Home() {
         href="/a-propos"
         className="border-2 border-blue-600 text-blue-400 px-8 py-2 hover:bg-blue-900 transition duration-300 mb-4 text-xl font-bold"
       >
-        ACCÉDER AU TERMINAL
+        {"ACCÉDER AU TERMINAL"}
       </Link>
 
       {/* Message de pied de page */}
       <div className="text-center mb-4">
-        <div className="text-3xl text-blue-500 font-bold mb-1">TRANSMISSION FINALE</div>
-        <div className="text-3xl text-blue-400 font-bold mb-4">AVANT EFFONDREMENT</div>
-        <div className="text-xl text-blue-300">2084</div>
+        <div className="text-3xl text-blue-500 font-bold mb-1">{"TRANSMISSION FINALE"}</div>
+        <div className="text-3xl text-blue-400 font-bold mb-4">{"AVANT EFFONDREMENT"}</div>
+        <div className="text-xl text-blue-300">{"2084"}</div>
       </div>
 
       {/* Code-barres/Bande de données */}
