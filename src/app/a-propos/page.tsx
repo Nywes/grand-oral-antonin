@@ -5,21 +5,21 @@ export default function AProposPage() {
 
       <div className="max-w-3xl mx-auto space-y-6">
         <p>
-          En 2084, le monde tel que nous le connaissions n'existe plus. Les algorithmes et
-          l'intelligence artificielle contrôlent désormais chaque aspect de nos vies, sous le
-          contrôle d'un régime totalitaire qui a effacé toute notion de vie privée et de liberté
-          individuelle.
+          En 2084, le monde tel que nous le connaissions n&apos;existe plus. Les algorithmes et
+          l&apos;intelligence artificielle contrôlent désormais chaque aspect de nos vies, sous le
+          contrôle d&apos;un régime totalitaire qui a effacé toute notion de vie privée et de
+          liberté individuelle.
         </p>
 
         <p>
-          Ce site est l'ultime message de la résistance, un effort désespéré pour documenter les
-          abus du système et rallier ceux qui osent encore penser par eux-mêmes.
+          Ce site est l&apos;ultime message de la résistance, un effort désespéré pour documenter
+          les abus du système et rallier ceux qui osent encore penser par eux-mêmes.
         </p>
 
         <div className="border-l-4 border-red-600 pl-4 my-8">
           <p className="text-xl italic">
-            "La liberté, c'est la liberté de dire que deux et deux font quatre. Lorsque cela est
-            accordé, le reste suit."
+            &quot;La liberté, c&apos;est la liberté de dire que deux et deux font quatre. Lorsque
+            cela est accordé, le reste suit.&quot;
           </p>
           <p className="text-teal-300 mt-2">— George Orwell</p>
         </div>

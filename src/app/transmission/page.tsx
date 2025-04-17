@@ -18,11 +18,13 @@ export default function TransmissionPage() {
         </section>
 
         <section className="border border-teal-900 p-6">
-          <h2 className="text-2xl font-bold mb-4">Codes d'Identification</h2>
+          <h2 className="text-2xl font-bold mb-4">Codes d&apos;Identification</h2>
           <div className="font-mono bg-black bg-opacity-50 p-4 border border-teal-700 text-teal-400">
-            <p className="mb-2">DÉBUT: "L'oiseau s'envole à minuit"</p>
-            <p className="mb-2">RÉPONSE: "Le ciel est couvert mais les étoiles brillent"</p>
-            <p>DANGER: "Winston aime le chocolat"</p>
+            <p className="mb-2">DÉBUT: &quot;L&apos;oiseau s&apos;envole à minuit&quot;</p>
+            <p className="mb-2">
+              RÉPONSE: &quot;Le ciel est couvert mais les étoiles brillent&quot;
+            </p>
+            <p>DANGER: &quot;Winston aime le chocolat&quot;</p>
           </div>
         </section>
 
@@ -30,7 +32,7 @@ export default function TransmissionPage() {
           <h2 className="text-2xl font-bold mb-4">Points de Rencontre</h2>
           <p className="mb-4">
             Les coordonnées des points de rencontre sont transmises uniquement par les canaux
-            vérifiés. Utilisez le système de décryptage fourni lors de l'initiation.
+            vérifiés. Utilisez le système de décryptage fourni lors de l&apos;initiation.
           </p>
           <div className="font-mono bg-black bg-opacity-50 p-4 border border-teal-700 text-teal-400">
             <p>R29 = X7Y5 * (A3-B6) / Z12</p>

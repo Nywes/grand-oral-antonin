@@ -53,7 +53,13 @@ export default function PreuvePage({ params }: PreuvePageProps) {
         {isPDF ? (
           <div className="text-center p-4">
             <p className="text-teal-300 mb-2">Document PDF</p>
-            <p className="text-white">La fonctionnalité d&apos;affichage de PDF a été supprimée.</p>
+            {proof?.documentUrl && (
+              <iframe
+                src={proof.documentUrl}
+                className="w-full h-[600px] border border-teal-700"
+                title={`PDF Document - ${proof.title}`}
+              />
+            )}
           </div>
         ) : (
           <div className="space-y-6">
