@@ -4,6 +4,7 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { isProofPDF, getProofById } from '@/utils/proofUtils';
+import { useParams } from 'next/navigation';
 
 // Define the Proof type based on the proofs array structure
 type Proof = {
@@ -13,24 +14,16 @@ type Proof = {
   documentUrl: string;
 };
 
-interface RouteParams {
-  id: string;
-}
 
-interface PreuvePageProps {
-  params: RouteParams | Promise<RouteParams>;
-}
+export default function PreuvePage() {
+  const { id } = useParams();
 
-export default function PreuvePage({ params }: PreuvePageProps) {
-  const resolvedParams = React.use(params as Promise<RouteParams>);
-  const { id } = resolvedParams;
-
-  const numericId = parseInt(id, 10);
+  const numericId = parseInt(id as string, 10);
   const [isPDF, setIsPDF] = useState<boolean>(false);
   const [proof, setProof] = useState<Proof | null>(null);
 
   useEffect(() => {
-    setIsPDF(isProofPDF(id));
+    setIsPDF(isProofPDF(id as string));
     setProof(getProofById(numericId));
   }, [id, numericId]);
 
