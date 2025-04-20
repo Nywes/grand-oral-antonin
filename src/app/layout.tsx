@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
-import Navigation from '../components/Navigation';
+import './globals.css';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -25,11 +24,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr">
+      <head>
+        <meta name="referrer" content="no-referrer" />
+        {/* Removed CSP to allow PDFs and other content to load properly */}
+      </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-black text-teal-400 overflow-hidden`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-black overflow-hidden`}
       >
         <div className="flex flex-col h-screen">
-          <Navigation />
           <main className="flex-1 overflow-y-auto">{children}</main>
         </div>
       </body>

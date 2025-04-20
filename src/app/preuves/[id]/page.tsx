@@ -14,45 +14,55 @@ type Proof = {
   documentUrl: string;
 };
 
-
 export default function PreuvePage() {
   const { id } = useParams();
 
   const numericId = parseInt(id as string, 10);
   const [isPDF, setIsPDF] = useState<boolean>(false);
   const [proof, setProof] = useState<Proof | null>(null);
+  const [pdfError, setPdfError] = useState<boolean>(false);
 
   useEffect(() => {
     setIsPDF(isProofPDF(id as string));
     setProof(getProofById(numericId));
+    setPdfError(false);
   }, [id, numericId]);
+
+  const handlePdfError = () => {
+    setPdfError(true);
+  };
 
   return (
     <div className="container mx-auto py-8 px-4">
-      <div className="mb-6">
-        <Link href="/preuves" className="text-teal-300 hover:text-teal-400 transition">
-          ← {"Retour aux preuves"}
-        </Link>
-      </div>
-
-      <h1 className="text-4xl font-bold text-red-600 mb-8">{"Preuve #" + id}</h1>
-
       <div className="max-w-4xl mx-auto border border-teal-900 p-8">
-        <div className="flex justify-between items-center mb-6">
-          <div className="text-teal-300">{"Document #X-" + id + "4372"}</div>
-          <div className="text-red-600 font-mono">{"CONFIDENTIEL"}</div>
+        <div className="flex justify-between items-center mb-4">
+          <Link href="/preuves" className="text-teal-300 hover:text-teal-400 transition">
+            ← {'Retour aux preuves'}
+          </Link>
+
+          <div className="text-red-600 font-mono">{'CONFIDENTIEL'}</div>
         </div>
 
         {isPDF ? (
-          <div className="text-center p-4">
-            <p className="text-teal-300 mb-2">{"Document PDF"}</p>
-            {proof?.documentUrl && (
+          <div className="text-center">
+            {proof?.documentUrl && !pdfError ? (
               <iframe
                 src={proof.documentUrl}
-                className="w-full h-[600px] border border-teal-700"
+                className="w-full h-[80vh] border border-teal-700"
                 title={`PDF Document - ${proof.title}`}
+                loading="lazy"
+                onError={handlePdfError}
               />
-            )}
+            ) : pdfError ? (
+              <div className="w-full h-[600px] border border-teal-700 flex items-center justify-center bg-black bg-opacity-50">
+                <div className="text-red-500">
+                  <p>Erreur de chargement du document</p>
+                  <p className="text-xs mt-2">
+                    Le document est peut-être actuellement inaccessible
+                  </p>
+                </div>
+              </div>
+            ) : null}
           </div>
         ) : (
           <div className="space-y-6">
@@ -63,14 +73,14 @@ export default function PreuvePage() {
             </p>
 
             <div className="font-mono bg-black bg-opacity-50 p-4 border border-teal-700 text-teal-400">
-              <p>{"COORDONNÉES: 47.2334° N, 38.1233° E"}</p>
-              <p>{"DATE: " + proof?.date || '12.06.2082'}</p>
-              <p>{"TÉMOINS: 3"}</p>
+              <p>{'COORDONNÉES: 47.2334° N, 38.1233° E'}</p>
+              <p>{'DATE: ' + proof?.date || '12.06.2082'}</p>
+              <p>{'TÉMOINS: 3'}</p>
             </div>
 
             <p>
               {
-                "Duis consequat orci id sapien fringilla, eu finibus quam sodales. Cras volutpat, justo at fermentum faucibus, arcu sem fermentum ante, ac facilisis lacus dolor nec nunc."
+                'Duis consequat orci id sapien fringilla, eu finibus quam sodales. Cras volutpat, justo at fermentum faucibus, arcu sem fermentum ante, ac facilisis lacus dolor nec nunc.'
               }
             </p>
 

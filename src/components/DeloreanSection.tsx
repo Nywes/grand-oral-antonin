@@ -1,5 +1,4 @@
-import YouTube from 'react-youtube';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 export default function DeloreanSection() {
   // List of available live streams
@@ -14,8 +13,9 @@ export default function DeloreanSection() {
   ];
 
   const [currentVideoId, setCurrentVideoId] = useState(videoIds[0]);
-
   const [recentWebcams, setRecentWebcams] = useState<string[]>([videoIds[0]]);
+  const [playerError, setPlayerError] = useState(false);
+  const iframeRef = useRef<HTMLIFrameElement>(null);
 
   useEffect(() => {
     const getRandomVideoId = () => {
@@ -32,6 +32,7 @@ export default function DeloreanSection() {
     };
 
     const switchVideo = () => {
+      setPlayerError(false);
       const newVideoId = getRandomVideoId();
       setCurrentVideoId(newVideoId);
 
@@ -47,46 +48,51 @@ export default function DeloreanSection() {
 
     return () => clearTimeout(timeoutId);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [currentVideoId]); // Re-run effect when currentVideoId changes
+  }, [currentVideoId]);
+
+  const handleIframeError = () => {
+    setPlayerError(true);
+    // If there's an error loading the current video, switch to another one
+    setTimeout(() => {
+      const newVideoId = videoIds.filter((id) => id !== currentVideoId)[
+        Math.floor(Math.random() * (videoIds.length - 1))
+      ];
+      setCurrentVideoId(newVideoId);
+    }, 3000);
+  };
 
   return (
-    <div className="border border-blue-500 p-4 flex flex-col">
+    <div className="h-full w-full border border-blue-500 p-4 flex flex-col">
       <div className="flex justify-between text-xs text-blue-400 mb-1">
         <span>{'Delorean'}</span>
         <span>{'Démarrer'}</span>
       </div>
-      <div className="mt-8 h-48 bg-gradient-to-b from-transparent to-blue-900/20 flex items-center justify-center overflow-hidden">
-        <div className="filter grayscale blur-[1px] contrast-50 brightness-75">
-          <YouTube
-            videoId={currentVideoId}
-            id={''}
-            className={''}
-            iframeClassName={'pointer-events-none'}
-            style={{}}
-            title={''}
-            loading={'lazy'}
-            opts={{
-              playerVars: {
-                autoplay: 1,
-                controls: 0,
-                disablekb: 1,
-                fs: 0,
-                rel: 0,
-                modestbranding: 1,
-                iv_load_policy: 3,
-                mute: 1,
-                vq: 'tiny',
-              },
-            }}
-            onReady={() => {}}
-            onPlay={() => {}}
-            onPause={() => {}}
-            onEnd={() => {}}
-            onError={() => {}}
-            onStateChange={() => {}}
-            onPlaybackRateChange={() => {}}
-            onPlaybackQualityChange={() => {}}
-          />
+      <div className="flex-grow relative overflow-hidden">
+        <div className="absolute inset-0 filter grayscale blur-[1px] contrast-50 brightness-75 overflow-hidden">
+          <div className="absolute inset-0 scale-[1.4] origin-center overflow-hidden">
+            {!playerError ? (
+              <iframe
+                ref={iframeRef}
+                src={`https://www.youtube-nocookie.com/embed/${currentVideoId}?autoplay=1&controls=0&disablekb=1&fs=0&rel=0&modestbranding=1&iv_load_policy=3&mute=1&showinfo=0&vq=tiny&enablejsapi=0&loop=1`}
+                className="w-full h-full pointer-events-none"
+                style={{
+                  position: 'absolute',
+                  top: '-15%',
+                  left: 0,
+                  width: '100%',
+                  height: '130%',
+                }}
+                title="Live Webcam"
+                loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                onError={handleIframeError}
+              />
+            ) : (
+              <div className="w-full h-full bg-black flex items-center justify-center">
+                <div className="text-blue-500 text-xs">Reconnexion...</div>
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </div>
