@@ -7,7 +7,8 @@ import AttackMonitor from '../components/AttackMonitor';
 import FaceGif from '../components/FaceGif';
 import NoiseBackground from '../components/NoiseBackground';
 import FuturisticCaptcha from '../components/FuturisticCaptcha';
-import Navigation from '../components/Navigation';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 export default function Home() {
   const [isVerified, setIsVerified] = useState(false);
@@ -15,6 +16,7 @@ export default function Home() {
   const [isMobile, setIsMobile] = useState(false);
   const [visibleComponents, setVisibleComponents] = useState([false, false, false, false]);
   const [contentVisible, setContentVisible] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     // Vérifier si l'appareil est mobile
@@ -148,7 +150,7 @@ export default function Home() {
       {!isVerified && <FuturisticCaptcha onVerified={handleVerification} />}
 
       <div
-        className={`flex flex-col items-center justify-center py-8 px-4 relative bg-black min-h-screen transition-opacity duration-1000 ease-in-out ${
+        className={`flex flex-col items-center justify-center relative bg-black min-h-screen transition-opacity duration-1000 ease-in-out ${
           contentVisible ? 'opacity-100' : 'opacity-0'
         }`}
       >
@@ -159,7 +161,7 @@ export default function Home() {
         <NoiseBackground />
 
         {/* Nouvelle disposition en grille */}
-        <div className="grid grid-cols-12 gap-4 w-full max-w-6xl mb-8">
+        <div className="grid grid-cols-12 gap-4 w-full max-w-6xl">
           {/* Orb Component (6 colonnes) */}
           <div className="col-span-12 md:col-span-4 flex items-end justify-center h-96">
             <div
@@ -182,15 +184,26 @@ export default function Home() {
 
           {/* Title section (8 colonnes) */}
           <div className="col-span-12 md:col-span-9 flex items-center justify-center h-12">
-            <h2 className="text-3xl font-bold italic uppercase text-blue-800">
-              UN message de 2084
+            <h2 className="text-3xl font-bold italic uppercase text-blue-800 ml-48">
+              {`Journal d'un résistant`}
             </h2>
           </div>
 
           {/* Text section (4 colonnes, prend toute la hauteur des deux composants inférieurs) */}
           <div className="col-span-12 md:col-span-3 md:row-span-2 sticky top-0">
             <div className="text-white w-full">
-              <Navigation />
+              <nav className="flex justify-center p-4 sticky top-0">
+                <div className="flex flex-col space-y-4 font-mono text-xl text-end uppercase">
+                  <Link
+                    href="/a-propos"
+                    className={`text-cyan-400 hover:text-cyan-300 transition-colors ${
+                      pathname === '/a-propos' ? 'text-blue-700 font-bold' : ''
+                    }`}
+                  >
+                    Accéder &gt;_
+                  </Link>
+                </div>
+              </nav>
             </div>
           </div>
 

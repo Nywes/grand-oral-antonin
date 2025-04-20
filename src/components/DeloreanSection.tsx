@@ -64,8 +64,8 @@ export default function DeloreanSection() {
   return (
     <div className="h-full w-full border border-blue-500 p-4 flex flex-col">
       <div className="flex justify-between text-xs text-blue-400 mb-1">
-        <span>{'Delorean'}</span>
-        <span>{'Démarrer'}</span>
+        <span>{'Ils nous observent ...'}</span>
+        <span>{'xx-xx-x'}</span>
       </div>
       <div className="flex-grow relative overflow-hidden">
         <div className="absolute inset-0 filter grayscale blur-[1px] contrast-50 brightness-75 overflow-hidden">

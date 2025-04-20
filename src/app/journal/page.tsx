@@ -8,8 +8,6 @@ export default function JournalPage() {
       </div>
 
       <div className="w-3/4 p-8">
-        <h1 className="text-4xl font-bold text-red-600 mb-8">{`JOURNAL`}</h1>
-
         <div className="space-y-8">
           <article className="border border-teal-900 p-6">
             <h2 className="text-2xl font-bold mb-4">{`PRÉAMBULE`}</h2>

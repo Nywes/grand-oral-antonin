@@ -20,7 +20,7 @@ export default function PlanetSection() {
         <div className="absolute top-0 right-4 text-white">+ + + +</div>
       </div>
       <div className="bg-blue-900/30 p-2 text-blue-300 text-sm">
-        {"Voyagez au-delà de l'horizon—où le passé rencontre le futur"}
+        {"Vous êtes notre dernier espoir"}
       </div>
     </div>
   );

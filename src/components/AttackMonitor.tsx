@@ -77,29 +77,32 @@ export default function AttackMonitor() {
     return () => {
       localIntervalIds.forEach((id) => clearTimeout(id));
     };
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
-    <div className="border border-blue-500 p-2">
-      <div className="text-xl font-bold text-blue-400 mb-2">{'FAILLE DE SÉCURITÉ'}</div>
-      <div className="flex space-x-1 mb-3">{pulseElements}</div>
-      <div className="text-xs text-blue-300 mb-2">
-        {attackData.map((attack, i) => (
-          <div
-            key={i}
-            className="flex justify-between mt-1 attack-line"
-            style={{ animationDelay: `${i * 0.8}s` }}
-          >
-            <span>{attack.ip}</span>
-            <span className={attack.color}>{attack.type}</span>
-            <span>{attack.time}</span>
-          </div>
-        ))}
+    <div className="flex flex-col gap-4">
+      <div className="border border-blue-500 p-2">
+        <div className="text-xl font-bold text-blue-400 mb-2">{'FAILLE DE SÉCURITÉ'}</div>
+        <div className="flex space-x-1 mb-3">{pulseElements}</div>
+        <div className="text-xs text-blue-300 mb-2">
+          {attackData.map((attack, i) => (
+            <div
+              key={i}
+              className="flex justify-between mt-1 attack-line"
+              style={{ animationDelay: `${i * 0.8}s` }}
+            >
+              <span>{attack.ip}</span>
+              <span className={attack.color}>{attack.type}</span>
+              <span>{attack.time}</span>
+            </div>
+          ))}
+        </div>
+        <div className="text-xs text-red-500 mt-2 blink-fast">
+          {'STATUT DU PARE-FEU: SOUS ATTAQUE'}
+        </div>
       </div>
-      <div className="text-xs text-red-500 mt-2 blink-fast">
-        {'STATUT DU PARE-FEU: SOUS ATTAQUE'}
-      </div>
+      <p className="text-xs text-blue-400"> {'Ils nous retrouveront ...'} </p>
     </div>
   );
 }

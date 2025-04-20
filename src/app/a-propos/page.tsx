@@ -8,8 +8,6 @@ export default function AProposPage() {
       </div>
 
       <div className="w-3/4 p-8">
-        <h1 className="text-4xl font-bold text-red-600 mb-8">{'À PROPOS'}</h1>
-
         <div className="max-w-3xl space-y-6">
           <div className="border-l-4 border-red-600 pl-4 my-8">
             <p className="text-xl italic">
@@ -22,13 +20,13 @@ export default function AProposPage() {
 
           <p>
             {
-              "Ce projet est né d'une conviction profonde : les technologies numériques, aussi prometteuses soient-elles, sont dangereuses entre des mains humaines mal encadrées. Vous l'aurez compris, je suis relativement techno-sceptique — non pas que je refuse le progrès technique et technologique, mais parce que je crois que l'Homme, souvent irréfléchi, parfois cynique, tend à détourner les outils à son profit, même au détriment des autres. C'est la raison pour laquelle il est absolument nécessaire de réguler le progrès ; ce projet est un appel à l'imaginaire, un acte de mise en garde, qui je l'espère, pourra mener ses lecteurs à la même conclusion."
+              'Ce projet est né d’une conviction profonde : les technologies numériques, aussi prometteuses soient-elles, sont dangereuses entre des mains humaines mal encadrées. Vous l’aurez compris, je suis relativement techno-sceptique — non pas que je refuse le progrès technique et technologique, mais parce que je crois que l’Homme, souvent irréfléchi, parfois cynique, tend à détourner les outils à son profit, même au détriment des autres. C’est la raison pour laquelle il est absolument nécessaire de réguler le progrès ; ce projet est un appel à l’imaginaire, un acte de mise en garde, qui je l’espère, pourra mener ses lecteurs à la même conclusion.'
             }
           </p>
 
           <p>
             {
-              "Durant mon année de Master 1 Law, Governance and Technologies à l'Université Catholique de Lille, j'ai découvert un intérêt tout particulier pour l'étude des nouvelles technologies par le prisme des droits humains. À mesure que j'avançais, je comprenais mieux à quel point le numérique peut être vecteur de surveillance, d'inégalités, de désinformation et de dépossession. Cette prise de conscience m'a conduit à une conviction nouvelle : le progrès numérique a un coût, et ce coût est bien souvent celui de nos libertés fondamentales."
+              'Au cours de mon année de Master 1 Law, Governance and Technologies à l’Université Catholique de Lille, j’ai découvert un intérêt tout particulier pour l’étude des nouvelles technologies par le prisme des droits humains. À mesure que j’avançais, je comprenais mieux à quel point le numérique peut être vecteur de surveillance, d’inégalités, de désinformation et de dépossession. Cette prise de conscience m’a conduit à une conviction nouvelle : le progrès numérique a un coût, et ce coût est bien souvent celui de nos libertés fondamentales.'
             }
           </p>
 
@@ -78,6 +76,24 @@ export default function AProposPage() {
             {
               "À travers cette œuvre, j'ai voulu mêler rigueur académique, créativité narrative et urgence politique. J'espère qu'elle saura susciter la réflexion, peut-être même l'action, car au fond, il ne s'agit pas que d'un projet universitaire. Il s'agit d'une prise de position. D'un espoir. Et d'un avertissement."
             }
+          </p>
+          <p>
+            {
+              'Je ne saurais conclure cette section sans adresser quelques mots à ceux qui ont rendu ce projet possible, concrètement, humainement.'
+            }
+          </p>
+          <p>
+            {
+              'Je remercie Eliott, d’abord, pour son aide précieuse dans la réalisation technique de ce site. Sans lui, ce journal serait probablement resté une simple idée griffonnée sur papier. Il a su donner forme et structure à un imaginaire parfois chaotique, et c’est grâce à lui que ce projet a pu prendre vie sous cette forme numérique.'
+            }
+          </p>
+          <p>
+            {
+              'Merci également à Pak Ho, dont les conseils sur les choix esthétiques ont largement influencé l’atmosphère visuelle du journal. Son regard artistique m’a permis d’aligner le fond et la forme, et de faire en sorte que chaque page raconte quelque chose, non seulement par le texte, mais aussi par les couleurs, les textures, les contrastes.'
+            }
+          </p>
+          <p>
+            {`Enfin, je tiens à expliquer un choix qui, je le sais, pourrait sembler discutable du point de vue académique : celui d’avoir rédigé ce travail en français. Compte tenu de mon cursus, le faire en anglais aurait sans doute été plus attendu, plus "professionnel". Mais j’ai choisi le français pour que mon père puisse me lire. Il ne parle pas anglais, et il a pourtant été, depuis le début, l’un des piliers silencieux de mon parcours. C’est à lui que je dois, en grande partie, d’en être arrivé là aujourd’hui. Ce projet lui est dédié, à sa manière. Et s’il n’y comprend pas tout, j’espère au moins qu’il en saisira l’essentiel : que je suis là, que je pense, que je crée — et que je n’oublie pas.`}
           </p>
         </div>
       </div>
