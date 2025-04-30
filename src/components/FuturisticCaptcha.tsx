@@ -175,7 +175,7 @@ export default function FuturisticCaptcha({ onVerified }: Props) {
               )}
               <div className="text-xs text-blue-200 mb-4">
                 {error ? (
-                  <span className="text-red-400 blink-fast">
+                  <span className="text-orange-400 blink-fast">
                     ERREUR DE SÉQUENCE - VEUILLEZ RÉESSAYER
                   </span>
                 ) : showingPattern ? (

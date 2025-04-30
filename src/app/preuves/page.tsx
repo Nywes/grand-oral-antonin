@@ -14,17 +14,17 @@ export default function PreuvesPage() {
           {proofs.map((proof) => (
             <div
               key={proof.id}
-              className="flex flex-col justify-between border border-teal-900 p-6 hover:border-red-600 transition"
+              className="flex flex-col justify-between border border-cyan-900 p-6 hover:border-orange-600 transition"
             >
               <div className="flex flex-col justify-between">
                 <h2 className="text-2xl font-bold mb-4">{'Preuve #' + proof.id}</h2>
                 <p className="mb-4 opacity-70">{proof.title}</p>
               </div>
               <div className="flex flex-wrap justify-between items-center gap-2">
-                <div className="text-teal-300 text-sm">{proof.date}</div>
+                <div className="text-cyan-300 text-sm">{proof.date}</div>
                 <Link
                   href={`/preuves/${proof.id}`}
-                  className="text-red-600 hover:text-red-400 transition"
+                  className="text-orange-600 hover:text-orange-400 transition"
                 >
                   <p>{`Déchiffrer`}</p>
                 </Link>

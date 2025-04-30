@@ -4,7 +4,7 @@ const proofMap: Record<string, string> = {
   '2': '/proofs/Essai sur la modération des contenus en ligne.pdf',
   '3': '/proofs/Essai sur la vidéosurveillance algorithmique durant les Jeux Olympiques 2024.pdf',
   '4': "/proofs/Essai sur le concept de démocratie à l'ère du numérique.pdf",
-  '5': "/proofs/Présentation du projet de directive européenne sur la responsabilité de l'IA.pptx",
+  '5': "/proofs/Présentation du projet de directive européenne sur la responsabilité de l'IA.pdf",
   '6': "/proofs/Présentation orale sur la création d'un agent IA.pdf",
   '7': '/proofs/Présentation orale sur les enjeux éthiques posés par CRISPR-Cas9.pdf',
   '8': "/proofs/Projet de mise en transparence d'algorithmes publics copie.pdf",
@@ -44,7 +44,7 @@ export const proofs = [
     title: "Directive européenne sur la responsabilité de l'IA",
     date: '17.04.2084',
     documentUrl:
-      "/proofs/Présentation du projet de directive européenne sur la responsabilité de l'IA.pptx",
+      "/proofs/Présentation du projet de directive européenne sur la responsabilité de l'IA.pdf",
   },
   {
     id: 6,

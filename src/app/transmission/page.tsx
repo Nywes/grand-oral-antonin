@@ -9,9 +9,9 @@ export default function TransmissionPage() {
 
       <div className="w-3/4 p-8">
         <div className="max-w-3xl space-y-8">
-          <section className="border border-teal-900 p-6">
+          <section className="border border-cyan-900 p-6">
             <h2 className="text-2xl font-bold mb-4">{'Protocole de Communication'}</h2>
-            <div className="font-mono bg-black bg-opacity-50 p-4 border border-teal-700 text-teal-400">
+            <div className="font-mono bg-black bg-opacity-50 p-4 border border-cyan-700 text-cyan-400">
               <p className="mb-2">{'FRÉQUENCE: 87.452 MHz'}</p>
               <p className="mb-2">{'HORAIRE: 02:30 / 14:30 / 22:30'}</p>
               <p>{'DURÉE: 240 secondes'}</p>
@@ -23,9 +23,9 @@ export default function TransmissionPage() {
             </p>
           </section>
 
-          <section className="border border-teal-900 p-6">
+          <section className="border border-cyan-900 p-6">
             <h2 className="text-2xl font-bold mb-4">{"Codes d'Identification"}</h2>
-            <div className="font-mono bg-black bg-opacity-50 p-4 border border-teal-700 text-teal-400">
+            <div className="font-mono bg-black bg-opacity-50 p-4 border border-cyan-700 text-cyan-400">
               <p className="mb-2">{'DÉBUT: "L\'oiseau s\'envole à minuit"'}</p>
               <p className="mb-2">{'RÉPONSE: "Le ciel est couvert mais les étoiles brillent"'}</p>
               <p>{'DANGER: "Winston aime le chocolat"'}</p>

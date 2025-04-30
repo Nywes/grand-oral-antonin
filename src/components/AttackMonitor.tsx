@@ -9,9 +9,9 @@ interface AttackData {
 
 export default function AttackMonitor() {
   const [attackData, setAttackData] = useState<AttackData[]>([
-    { ip: '192.168.1.42', type: 'INJECTION SQL', time: 'il y a 3s', color: 'text-red-400' },
+    { ip: '192.168.1.42', type: 'INJECTION SQL', time: 'il y a 3s', color: 'text-orange-400' },
     { ip: '176.28.14.102', type: 'FORCE BRUTE', time: 'il y a 17s', color: 'text-yellow-400' },
-    { ip: '103.45.11.89', type: 'TENTATIVE XSS', time: 'il y a 32s', color: 'text-red-400' },
+    { ip: '103.45.11.89', type: 'TENTATIVE XSS', time: 'il y a 32s', color: 'text-orange-400' },
   ]);
 
   const attackTypes = [
@@ -55,7 +55,7 @@ export default function AttackMonitor() {
           )}.${Math.floor(Math.random() * 255)}`,
           type: attackTypes[Math.floor(Math.random() * attackTypes.length)],
           time: `il y a ${Math.floor(Math.random() * 60)}s`,
-          color: Math.random() > 0.5 ? 'text-red-400' : 'text-yellow-400',
+          color: Math.random() > 0.5 ? 'text-orange-400' : 'text-yellow-400',
         };
 
         setAttackData((prev) => {
@@ -98,7 +98,7 @@ export default function AttackMonitor() {
             </div>
           ))}
         </div>
-        <div className="text-xs text-red-500 mt-2 blink-fast">
+        <div className="text-xs text-orange-500 mt-2 blink-fast">
           {'STATUT DU PARE-FEU: SOUS ATTAQUE'}
         </div>
       </div>

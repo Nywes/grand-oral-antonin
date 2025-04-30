@@ -19,6 +19,16 @@ export default function Home() {
   const pathname = usePathname();
 
   useEffect(() => {
+    // Disable scrolling on body
+    document.body.style.overflow = 'hidden';
+
+    return () => {
+      // Re-enable scrolling when component unmounts
+      document.body.style.overflow = 'auto';
+    };
+  }, []);
+
+  useEffect(() => {
     // Vérifier si l'appareil est mobile
     const checkIfMobile = () => {
       const userAgent = navigator.userAgent;
@@ -111,12 +121,12 @@ export default function Home() {
   // Afficher un message pour les utilisateurs mobiles
   if (isMobile) {
     return (
-      <div className="bg-black text-blue-400 min-h-screen flex flex-col items-center justify-center p-6 text-center">
+      <div className="bg-black text-blue-400 min-h-screen flex flex-col items-center justify-center p-6 text-center overflow-hidden">
         <div className="absolute inset-0 pointer-events-none bg-scanlines opacity-10"></div>
         <NoiseBackground />
 
         <div className="border-2 border-blue-500 p-8 max-w-md mx-auto bg-black/80 backdrop-blur-sm">
-          <h1 className="text-2xl font-bold mb-6 text-red-500">
+          <h1 className="text-2xl font-bold mb-6 text-orange-500">
             [ERREUR DE COMPATIBILITÉ TEMPORELLE]
           </h1>
 
@@ -132,7 +142,7 @@ export default function Home() {
               Les appareils mobiles ne disposent pas de la capacité de calcul nécessaire pour
               stabiliser le flux temporel.
             </p>
-            <p className="text-red-400">
+            <p className="text-orange-400">
               Pour votre sécurité et la mienne, veuillez accéder à ce portail depuis un ordinateur.
             </p>
           </div>
@@ -150,7 +160,7 @@ export default function Home() {
       {!isVerified && <FuturisticCaptcha onVerified={handleVerification} />}
 
       <div
-        className={`flex flex-col items-center justify-center relative bg-black min-h-screen transition-opacity duration-1000 ease-in-out ${
+        className={`flex flex-col items-center justify-center relative bg-black min-h-screen transition-opacity duration-1000 ease-in-out overflow-hidden ${
           contentVisible ? 'opacity-100' : 'opacity-0'
         }`}
       >

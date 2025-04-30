@@ -54,56 +54,61 @@ export default function NoiseBackground() {
     };
 
     // Initial noise generation
-    const initialNoiseData = generateNoise();
-    setNoiseElements(renderNoiseElements(initialNoiseData));
+    let currentNoiseData = generateNoise(); // Use let to allow reassignment
+    setNoiseElements(renderNoiseElements(currentNoiseData));
 
     // Update noise elements periodically
     noiseIntervalRef.current = setInterval(() => {
-      const updatedNoiseData = initialNoiseData.map((item) => {
+      // Update based on the *current* state, not the initial state
+      currentNoiseData = currentNoiseData.map((item) => {
         // Randomly decide what to change (appear/disappear, move, change content)
         const changeType = Math.floor(Math.random() * 100);
 
+        const updatedItem = { ...item }; // Create a const copy
+
         if (changeType < 10) {
           // 10% chance to toggle visibility
-          return {
-            ...item,
-            visible: !item.visible,
-            opacity: item.visible ? 0 : Math.random() * 0.5 + 0.25,
-          };
+          updatedItem.visible = !item.visible;
+          updatedItem.opacity = updatedItem.visible ? Math.random() * 0.5 + 0.25 : 0;
         } else if (changeType < 25) {
           // 15% chance to move
-          return {
-            ...item,
-            moving: true,
-            top: `${Math.min(100, Math.max(0, parseFloat(item.top) + (Math.random() * 10 - 5)))}%`,
-            left: `${Math.min(
+          // Only move if visible
+          if (updatedItem.visible) {
+            const currentTop = parseFloat(updatedItem.top) || 0;
+            const currentLeft = parseFloat(updatedItem.left) || 0;
+            updatedItem.moving = true;
+            updatedItem.top = `${Math.min(
               100,
-              Math.max(0, parseFloat(item.left) + (Math.random() * 10 - 5))
-            )}%`,
-          };
+              Math.max(0, currentTop + (Math.random() * 4 - 2))
+            )}%`; // Smaller move steps
+            updatedItem.left = `${Math.min(
+              100,
+              Math.max(0, currentLeft + (Math.random() * 4 - 2))
+            )}%`; // Smaller move steps
+          } else {
+            updatedItem.moving = false; // Ensure non-visible don't move
+          }
         } else if (changeType < 35) {
           // 10% chance to change content
-          return {
-            ...item,
-            content: item.content === '0' ? '1' : '0',
-          };
+          updatedItem.content = item.content === '0' ? '1' : '0';
         } else if (changeType < 45) {
           // 10% chance to change color
-          return {
-            ...item,
-            color: Math.random() > 0.7 ? '#36B5D9' : '#696969',
-          };
+          updatedItem.color = Math.random() > 0.7 ? '#36B5D9' : '#696969';
         } else {
-          // 55% chance to reset movement
-          return {
-            ...item,
-            moving: false,
-          };
+          // Reset movement state more gradually
+          if (updatedItem.moving) {
+            // Add a chance to stop moving
+            if (Math.random() < 0.5) {
+              // 50% chance to stop if it was moving
+              updatedItem.moving = false;
+            }
+          }
         }
+        return updatedItem;
       }) as NoiseElement[];
 
-      setNoiseElements(renderNoiseElements(updatedNoiseData));
-    }, 800);
+      setNoiseElements(renderNoiseElements(currentNoiseData));
+    }, 100); // Faster update interval for smoother movement
 
     // Clean up interval on unmount
     return () => {
@@ -114,7 +119,9 @@ export default function NoiseBackground() {
   }, []);
 
   return (
-    <div className="absolute inset-0 h-screen z-0 opacity-15 pointer-events-none">
+    <div className="absolute inset-0 h-screen z-0 opacity-50 pointer-events-none overflow-hidden">
+      {' '}
+      {/* Added overflow-hidden */}
       {noiseElements}
     </div>
   );

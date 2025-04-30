@@ -9,13 +9,13 @@ export default function AProposPage() {
 
       <div className="w-3/4 p-8">
         <div className="max-w-3xl space-y-6">
-          <div className="border-l-4 border-red-600 pl-4 my-8">
+          <div className="border-l-4 border-orange-600 pl-4 my-8">
             <p className="text-xl italic">
               {
                 "« La liberté, c'est la liberté de dire que deux et deux font quatre. Lorsque cela est accordé, le reste suit. »"
               }
             </p>
-            <p className="text-teal-300 mt-2">{'— George Orwell, 1984'}</p>
+            <p className="text-cyan-300 mt-2">{'— George Orwell, 1984'}</p>
           </div>
 
           <p>

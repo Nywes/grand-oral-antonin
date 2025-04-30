@@ -34,13 +34,13 @@ export default function PreuvePage() {
 
   return (
     <div className="container mx-auto py-8 px-4">
-      <div className="max-w-4xl mx-auto border border-teal-900 p-8">
+      <div className="max-w-4xl mx-auto border border-cyan-900 p-8">
         <div className="flex justify-between items-center mb-4">
-          <Link href="/preuves" className="text-teal-300 hover:text-teal-400 transition">
+          <Link href="/preuves" className="text-cyan-300 hover:text-cyan-400 transition">
             ← {'Retour aux preuves'}
           </Link>
 
-          <div className="text-red-600 font-mono">{'CONFIDENTIEL'}</div>
+          <div className="text-orange-600 font-mono">{'CONFIDENTIEL'}</div>
         </div>
 
         {isPDF ? (
@@ -48,14 +48,14 @@ export default function PreuvePage() {
             {proof?.documentUrl && !pdfError ? (
               <iframe
                 src={proof.documentUrl}
-                className="w-full h-[80vh] border border-teal-700"
+                className="w-full h-[80vh] border border-cyan-700"
                 title={`PDF Document - ${proof.title}`}
                 loading="lazy"
                 onError={handlePdfError}
               />
             ) : pdfError ? (
-              <div className="w-full h-[600px] border border-teal-700 flex items-center justify-center bg-black bg-opacity-50">
-                <div className="text-red-500">
+              <div className="w-full h-[600px] border border-cyan-700 flex items-center justify-center bg-black bg-opacity-50">
+                <div className="text-orange-500">
                   <p>Erreur de chargement du document</p>
                   <p className="text-xs mt-2">
                     Le document est peut-être actuellement inaccessible
@@ -72,7 +72,7 @@ export default function PreuvePage() {
               }
             </p>
 
-            <div className="font-mono bg-black bg-opacity-50 p-4 border border-teal-700 text-teal-400">
+            <div className="font-mono bg-black bg-opacity-50 p-4 border border-cyan-700 text-cyan-400">
               <p>{'COORDONNÉES: 47.2334° N, 38.1233° E'}</p>
               <p>{'DATE: ' + proof?.date || '12.06.2082'}</p>
               <p>{'TÉMOINS: 3'}</p>
@@ -84,7 +84,7 @@ export default function PreuvePage() {
               }
             </p>
 
-            <div className="border-l-4 border-red-600 pl-4 italic">
+            <div className="border-l-4 border-orange-600 pl-4 italic">
               {
                 "Ils ont remplacé sept membres du conseil d'administration. Le projet ECHO est maintenant en phase finale. L'humanité n'est pas prête pour ce qui va suivre."
               }
